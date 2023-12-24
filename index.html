@@ -8,6 +8,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
   <body>
+    <form class="form">
+      <label>
+        Select attribute:
+        <select name="attributeSelect" class="form__select">
+          <option value="films">Films</option>
+          <option value="people">Peoples</option>
+          <option value="planets">Planets</option>
+          <option value="species">Species</option>
+          <option value="starships">Starships</option>
+          <option value="vechicles">Vechicles</option>
+        </select>
+      </label>
+      <input type="text" placeholder="Enter something" class="form__search" />
+      <button type="submit" class="form__button">Search</button>
+    </form>
+    <div class="outputContainer"></div>
     <script src="main.js"></script>
   </body>
 </html>
