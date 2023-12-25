@@ -1,11 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+@font-face {
+  font-family: "starjediwebfont";
+  src: url("../fonts/starjedi.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "STARWARS";
+  src: url("../fonts/STARWARS.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background-image: url(../images/background.jpg);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  max-width: 1280px;
+  margin: auto;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background-color: black;
+  font-family: "STARWARS";
+  font-size: 20px;
+  &__logo {
+    color: yellow;
+    font-family: "starjediwebfont";
+    font-size: 36px;
+    cursor: pointer;
+  }
+  &__link {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    padding-right: 10px;
+    transition: color 0.3s;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      right: 7px;
+      bottom: -3px;
+      height: 2px;
+      width: 0;
+      background-color: yellow;
+      transition: width 0.3s;
+    }
+
+    &:hover {
+      color: yellow;
+      &::after {
+        left: -3px;
+        width: calc(100% - 4px);
+      }
+    }
+
+    &:nth-of-type(6) {
+      padding-right: 0;
+
+      &::after {
+        width: 0;
+        right: -3px;
+      }
+
+      &:hover {
+        &::after {
+          left: -3px;
+          width: calc(100% + 6px);
+        }
+      }
+    }
+  }
+}
+
+.search {
+  position: relative;
+  width: 400px;
+
+  &__input {
+    padding: 0px 110px;
+    width: 100%;
+    font-size: 16px;
+    line-height: 28px;
+    border-radius: 10px;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+    &:focus-visible {
+      outline: none !important;
+    }
+  }
+
+  &__select,
+  &__button {
+    position: absolute;
+    font-size: 15px;
+    height: 28px;
+    line-height: 28px;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+    &:focus-visible {
+      outline: none !important;
+    }
+  }
+
+  &__select {
+    left: 0;
+    border-radius: 10px 0 0 10px;
+    border-right: 1px solid black;
+  }
+  &__button {
+    right: 0;
+    border-radius: 0 10px 10px 0;
+    background-color: white;
+    border-left: 1px solid black;
+    transition: all 0.3s;
+
+    &:hover {
+      text-shadow: 0px 0px 0px #000000;
+      background-color: yellow;
+    }
+  }
+}
+
 .blurContainer {
   position: absolute;
+  background-color: rgba($color: #000000, $alpha: 0.7);
   left: 0;
   top: -100vh;
   height: 100vh;
   width: 100%;
   backdrop-filter: blur(10px);
-  transition: all 2s;
+  transition: all 0.7s;
+  cursor: wait;
 }
 
 .blured {

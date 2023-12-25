@@ -1,6 +1,9 @@
 $(document).ready(function () {
   $('.nav__link').click(chooseCategory);
   $('.search__button').click(search);
+  $('.nav__logo').click(function () {
+    $('.outputContainer').empty();
+  });
 });
 
 async function chooseCategory(event) {
@@ -10,8 +13,8 @@ async function chooseCategory(event) {
   $.get({
     url: $(this).attr('href'),
   }).done(function (result) {
-    renderSearchResults(result);
     $('.blurContainer').toggleClass('blured');
+    renderSearchResults(result);
   });
 }
 
@@ -38,8 +41,8 @@ async function checkFullInfo(event) {
     url: $(this).attr('href'),
   }).done(async function (result) {
     let rendered = await renderFullItem(result);
-    $('.outputContainer').append(rendered);
     $('.blurContainer').toggleClass('blured');
+    $('.outputContainer').append(rendered);
   });
 }
 
@@ -96,13 +99,19 @@ async function search(event) {
   $('.outputContainer').empty();
   if ($('.search__input').val() !== '') {
     $('.blurContainer').toggleClass('blured');
+
     const result = await $.get({
       url: `https://swapi.dev/api/${$('.search__select').val()}/?search=${$(
         '.search__input'
       ).val()}`,
     });
-    renderSearchResults(result);
     $('.blurContainer').toggleClass('blured');
+    if (result.count != 0) {
+      renderSearchResults(result);
+    } else {
+      $('.outputContainer').append('<h2>Nothing found</h2>');
+    }
+    renderSearchResults(result);
   } else {
     console.log(
       $('.outputContainer').append('<h2>You must enter something</h2>')
