@@ -4,26 +4,57 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="stylesheet" href="css/style.min.css" />
     <title>StarWarsPedia</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
   <body>
-    <form class="form">
-      <label>
-        Select attribute:
-        <select name="attributeSelect" class="form__select">
-          <option value="films">Films</option>
-          <option value="people">Peoples</option>
-          <option value="planets">Planets</option>
-          <option value="species">Species</option>
-          <option value="starships">Starships</option>
-          <option value="vechicles">Vechicles</option>
-        </select>
-      </label>
-      <input type="text" placeholder="Enter something" class="form__search" />
-      <button type="submit" class="form__button">Search</button>
-    </form>
+    <header class="header">
+      <div class="container">
+        <nav class="navbar">
+          <h1 href="" class="nav__link" data-attr="home">Home</h1>
+          <div class="navbar__separator"></div>
+          <div class="navbar__menu menu">
+            <a href="https://swapi.dev/api/films/" class="nav__link">Films</a>
+            <a href="https://swapi.dev/api/people/" class="nav__link"
+              >Peoples</a
+            >
+            <a href="https://swapi.dev/api/planets/" class="nav__link"
+              >Planets</a
+            >
+            <a href="https://swapi.dev/api/species/" class="nav__link"
+              >Species</a
+            >
+            <a href="https://swapi.dev/api/starships/" class="nav__link"
+              >Starships</a
+            >
+            <a href="https://swapi.dev/api/vechicles/" class="nav__link"
+              >Vechicles</a
+            >
+          </div>
+          <div class="navbar__search search">
+            <form class="search__form">
+              <select name="attributeSelect" class="search__select">
+                <option value="films">Films</option>
+                <option value="people">Peoples</option>
+                <option value="planets">Planets</option>
+                <option value="species">Species</option>
+                <option value="starships">Starships</option>
+                <option value="vechicles">Vechicles</option>
+              </select>
+              <input
+                type="text"
+                placeholder="Enter something"
+                class="search__input"
+              />
+              <button type="submit" class="search__button">Search</button>
+            </form>
+          </div>
+        </nav>
+      </div>
+    </header>
     <div class="outputContainer"></div>
+    <div class="blurContainer"></div>
     <script src="main.js"></script>
   </body>
 </html>
