@@ -20,6 +20,7 @@ async function chooseCategory(event) {
 
 async function renderSearchResults(result) {
   let rendered = [];
+  console.log(result.results);
   for (let item of result.results) {
     rendered.push(await renderItems(item));
   }
@@ -111,7 +112,6 @@ async function search(event) {
     } else {
       $('.outputContainer').append('<h2 class="error">Nothing found</h2>');
     }
-    renderSearchResults(result);
   } else {
     console.log(
       $('.outputContainer').append(
