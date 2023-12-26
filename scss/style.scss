@@ -140,6 +140,51 @@ body {
   }
 }
 
+.outputContainer {
+  background-color: rgba($color: #000000, $alpha: 0.9);
+  min-height: calc(100vh - 78px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.output__list-item {
+  display: block;
+  text-align: center;
+  width: 600px;
+  padding: 20px 0;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.found-item {
+  text-decoration: none;
+  font-family: "STARWARS";
+  color: yellow;
+  font-size: 28px;
+  transition: color 0.3s;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.output__item {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  row-gap: 15px;
+}
+
+.output__line {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+}
 .blurContainer {
   position: absolute;
   background-color: rgba($color: #000000, $alpha: 0.7);
@@ -154,4 +199,8 @@ body {
 
 .blured {
   top: 0;
+}
+
+.bold {
+  font-weight: 700;
 }

@@ -28,7 +28,7 @@ async function renderSearchResults(result) {
 }
 
 async function renderItems(item) {
-  let renderedItem = `<div class="output__item"><a href="${item.url}" class="found-item">`;
+  let renderedItem = `<div class="output__list-item"><a href="${item.url}" class="found-item">`;
   renderedItem += `${item?.name || item.title}</a></div>`;
   return renderedItem;
 }
@@ -52,13 +52,13 @@ async function renderFullItem(item) {
     if (key === 'created') {
       break;
     }
-    renderedItem += `${
+    renderedItem += `<div class="output__line"><span class="bold">${
       key[0].toUpperCase() + key.slice(1).replaceAll('_', ' ')
-    }: ${
+    }:</span> ${
       item[key].toString() === [].toString()
         ? 'none'
         : await linkChecker(item[key])
-    } <br>`;
+    } <br></div>`;
   }
   return renderedItem + '</div>';
 }
@@ -109,12 +109,14 @@ async function search(event) {
     if (result.count != 0) {
       renderSearchResults(result);
     } else {
-      $('.outputContainer').append('<h2>Nothing found</h2>');
+      $('.outputContainer').append('<h2 class="error">Nothing found</h2>');
     }
     renderSearchResults(result);
   } else {
     console.log(
-      $('.outputContainer').append('<h2>You must enter something</h2>')
+      $('.outputContainer').append(
+        '<h2 class="error">You must enter something</h2>'
+      )
     );
   }
 }
