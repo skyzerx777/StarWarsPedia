@@ -1,9 +1,8 @@
 $(document).ready(function () {
+  showHint();
   $('.nav__link').click(chooseCategory);
   $('.search__button').click(search);
-  $('.nav__logo').click(function () {
-    $('.outputContainer').empty();
-  });
+  $('.nav__logo').click(showHint);
 });
 
 async function chooseCategory(event) {
@@ -119,4 +118,11 @@ async function search(event) {
       )
     );
   }
+}
+
+function showHint() {
+  $('.outputContainer').empty();
+  $('.outputContainer').append(
+    '<h1 class="hint">Enter something or choose category above</h1>'
+  );
 }
